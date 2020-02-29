@@ -1,16 +1,19 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import Form from "./components/Form";
+import Nav from "./components/navbar";
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+    
     render() {
         return (
-            {Form}
+            <div>
+                <Nav title="prop test times"/>
+            </div>
         );
     }
 }
 
 export default App;
-
-const wrapper = document.getElementById("container");
-wrapper ? ReactDOM.render(<App />, wrapper) : false;

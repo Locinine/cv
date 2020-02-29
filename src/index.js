@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Form from "./components/Form";
-import './index.css';
+import App from "./app";
 
-ReactDOM.render(<Form />, document.getElementById('root'));
+import './style.scss';
+import 'bootstrap/dist/css/bootstrap.css';
+
+const wrapper = document.getElementById("container");
+wrapper ? ReactDOM.render(<App />, wrapper) : false;
