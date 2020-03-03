@@ -1,0 +1,31 @@
+$background-white: #ffffff !default;
+$grey-1: #c1c1c1 !default;
+
+.cv_container {
+  width: 80%;
+  margin: 50px auto;
+  background-color: $background-white;
+  border-radius: 2px;
+  padding: 0 10px;
+}
+
+.section-border {
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: $grey-1;
+  width: 100%;
+  padding-top: 2px;
+}
+
+.company_name {
+  font-style: italic;
+}
+
+.achieve_resp {
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+.job_role {
+  font-size: 9pt;
+}

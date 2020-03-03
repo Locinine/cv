@@ -1,19 +1,22 @@
 import React, { Component } from "react";
-import Nav from "./components/navbar";
+
+import Navigation from "./components/navbar";
+import CV from "./containers/cv";
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-    
-    render() {
-        return (
-            <div>
-                <Nav title="prop test times"/>
-            </div>
-        );
-    }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <div className="main_container">
+        <Navigation title="Farrah Lord-Newcombe" />
+        <CV />
+      </div>
+    );
+  }
 }
 
 export default App;
