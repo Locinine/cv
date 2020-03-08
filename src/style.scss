@@ -5,9 +5,10 @@ body {
 }
 
 .main_container {
-  // background: $background;
-  height: 100vh;
+  height: 105vh;
   font-size: 10pt;
+  margin-left: 64px;
+  width: calc(100% - 64px);
 }
 
 p {

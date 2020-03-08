@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+// const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
@@ -43,6 +44,9 @@ module.exports = {
         loader: "file-loader"
       }
     ]
+  },
+  devServer: {
+    historyApiFallback: true
   },
   plugins: [
     new HtmlWebPackPlugin({

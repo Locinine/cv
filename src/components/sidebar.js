@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Col, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
-import _ from "lodash";
+// import _ from "lodash";
 
 import Skills from "./skills";
 import { cv_interests, cv_personal_info } from "../constants";
@@ -15,7 +15,7 @@ class SideBar extends Component {
   }
 
   render() {
-    const { screenWidth } = this.props;
+    const { windowWith } = this.props;
 
     const getPersonalInfo = () => {
       //   let personalInfo = [];
@@ -54,7 +54,7 @@ class SideBar extends Component {
 
     const content = (
       <React.Fragment>
-        {screenWidth > 750 && (
+        {windowWith > 750 && (
           <Row>
             <h3 className="pd-20 pt-15">Farrah Lord-Newcombe</h3>
           </Row>
@@ -76,7 +76,7 @@ class SideBar extends Component {
       </React.Fragment>
     );
 
-    return screenWidth > 750 ? (
+    return windowWith > 750 ? (
       <Col md={4} sm={3} className="sidebar_container">
         {content}
       </Col>
@@ -87,7 +87,7 @@ class SideBar extends Component {
 }
 
 SideBar.propTypes = {
-  screenWidth: PropTypes.number
+  windowWith: PropTypes.number
 };
 
 export default SideBar;

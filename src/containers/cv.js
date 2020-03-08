@@ -16,24 +16,6 @@ class CV extends Component {
     _.bindAll(this, ["exportPDF"]);
   }
 
-  // shouldComponentUpdate(nextProps) {
-  //   console.log("1. window.innerWidth: ", window.innerWidth);
-  //   console.log("2. nextProps.screenWidth: ", nextProps.screenWidth);
-  //   console.log("3. this.state.screenWidth: ", this.state.screenWidth);
-  //   return (
-  //     nextProps &&
-  //     nextProps.screenWidth !== this.props.screenWidth &&
-  //     this.props.screenWidth != window.innerWidth
-  //   );
-  // }
-
-  // componentDidUpdate(prevProps) {
-  //   prevProps.screenWidth !== this.props.screenWidth &&
-  //   this.props.screenWidth != window.innerWidth
-  //     ? console.log("4. window.innerWidth: ", window.innerWidth)
-  //     : null;
-  // }
-
   exportPDF() {
     // this.resume.save();
   }
@@ -132,8 +114,7 @@ class CV extends Component {
       </React.Fragment>
     );
 
-    const { screenWidth } = this.props;
-    console.log("screenWidth: ", screenWidth);
+    const { windowWith } = this.props;
 
     return (
       <React.Fragment>
@@ -154,15 +135,15 @@ class CV extends Component {
           </Button>
         </div>
         <Container className="cv_container card_shadow_1">
-          {screenWidth > 750 ? (
+          {windowWith > 750 ? (
             <Row>
               <Col md={8}>{mainSections}</Col>
-              <SideBar screenWidth={screenWidth} />
+              <SideBar windowWith={windowWith} />
             </Row>
           ) : (
             <React.Fragment>
               <Col md={8}>{mainSections}</Col>
-              <SideBar screenWidth={screenWidth} />
+              <SideBar windowWith={windowWith} />
             </React.Fragment>
           )}
         </Container>
@@ -172,7 +153,7 @@ class CV extends Component {
 }
 
 CV.propTypes = {
-  screenWidth: PropTypes.number
+  windowWith: PropTypes.number
 };
 
 export default CV;

@@ -80,7 +80,7 @@ export const cv_education = [
 ];
 
 export const cv_interests =
-  "I enjoy indoor bouldering and am learning to lead climb. I also appreciate art and enjoy sketching and during a trip to Japan I found a passion for the anime/manga style artwork. Technology is a key part of my life and I like keeping up to date with the area whenever possible. I’m currently enjoying fixing and converting my van into a camper. I love to travel and hope that the camper will give me many more opportunities to do so.";
+  "I'm a keen climber, mostly indoor bouldering but have ventured out when the weather is right. Keen to try out new sports recently skateboarding and ice hockey. A future project I'm hoping to work on is a camper van conversion, previoulsy I had a part converted Citreon Relay called Smokey but as the name suggests it wasn't all that reliable so it found a new home.";
 
 export const cv_personal_info = {
   Location: "Belfast",
