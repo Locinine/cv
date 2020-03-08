@@ -11,7 +11,7 @@ import Projects from "./containers/projects";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { windowWith: null };
+    this.state = { windowWidth: null };
 
     _.bindAll(this, ["handleResize"]);
   }
@@ -26,7 +26,7 @@ class App extends Component {
   }
 
   handleResize() {
-    this.setState({ windowWith: window.innerWidth });
+    this.setState({ windowWidth: window.innerWidth });
   }
 
   render() {
@@ -39,7 +39,7 @@ class App extends Component {
           <Route
             path="/cv"
             render={props => (
-              <CV {...props} windowWith={this.state.windowWith} />
+              <CV {...props} windowWidth={this.state.windowWidth} />
             )}
           />
           <Route path={"/projects"} component={Projects} />

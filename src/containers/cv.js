@@ -4,7 +4,12 @@ import { Container, Col, Row, Button } from "react-bootstrap";
 import _ from "lodash";
 
 import SideBar from "../components/sidebar";
-import { cv_intro, cv_expierence, cv_education } from "../constants";
+import {
+  cv_intro,
+  cv_expierence,
+  cv_education,
+  screenSizes
+} from "../constants";
 
 import "../containers/styles/cv.scss";
 
@@ -114,11 +119,12 @@ class CV extends Component {
       </React.Fragment>
     );
 
-    const { windowWith } = this.props;
+    const { windowWidth } = this.props;
 
     return (
       <React.Fragment>
         <div className="button_container container">
+          <span>windowWidth: {windowWidth}</span>
           <Button
             className="exportButton"
             variant="danger"
@@ -135,15 +141,15 @@ class CV extends Component {
           </Button>
         </div>
         <Container className="cv_container card_shadow_1">
-          {windowWith > 750 ? (
+          {windowWidth >= screenSizes.small ? (
             <Row>
               <Col md={8}>{mainSections}</Col>
-              <SideBar windowWith={windowWith} />
+              <SideBar windowWidth={windowWidth} />
             </Row>
           ) : (
             <React.Fragment>
               <Col md={8}>{mainSections}</Col>
-              <SideBar windowWith={windowWith} />
+              <SideBar windowWidth={windowWidth} />
             </React.Fragment>
           )}
         </Container>
@@ -153,7 +159,7 @@ class CV extends Component {
 }
 
 CV.propTypes = {
-  windowWith: PropTypes.number
+  windowWidth: PropTypes.number
 };
 
 export default CV;

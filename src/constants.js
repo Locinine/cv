@@ -87,3 +87,15 @@ export const cv_personal_info = {
   GitHub: "https://github.com/Locinine/",
   LinkedIn: "https://www.linkedin.com/in/farrah-lord-newcombe-00262b92/"
 };
+
+export const screenSizes = {
+  // Extra Small devices (portrait phones, 575px and down)
+  // Small devices (landscape phones, 576px and up)
+  small: 567,
+  // Medium devices (tablets, 768px and up)
+  medium: 764,
+  // Large devices (desktops, 992px and up)
+  large: 992,
+  // Extra large devices (large desktops, 1200px and up)
+  xlarge: 1200
+};
