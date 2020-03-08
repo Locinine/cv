@@ -1,6 +1,6 @@
 import React from "react";
-import PropTypes from 'prop-types';
-import { Navbar, Nav } from 'react-bootstrap';
+import PropTypes from "prop-types";
+import { Navbar, Nav } from "react-bootstrap";
 
 const Navigation = ({ title }) => (
   <Navbar bg="dark" variant="dark">
@@ -9,15 +9,15 @@ const Navigation = ({ title }) => (
     <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
       <Nav>
         <Nav.Link href="#home">About</Nav.Link>
-        <Nav.Link href="#features">CV</Nav.Link>
-        <Nav.Link href="#pricing">Projects</Nav.Link>
+        <Nav.Link href="#cv">CV</Nav.Link>
+        <Nav.Link href="#projects">Projects</Nav.Link>
       </Nav>
     </Navbar.Collapse>
   </Navbar>
 );
 
 Navigation.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string
 };
 
 export default Navigation;

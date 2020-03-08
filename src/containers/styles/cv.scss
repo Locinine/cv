@@ -3,7 +3,7 @@ $grey-1: #c1c1c1 !default;
 
 .cv_container {
   width: 80%;
-  margin: 50px auto;
+  margin: 25px auto;
   background-color: $background-white;
   border-radius: 2px;
   padding: 0 10px;
@@ -28,4 +28,16 @@ $grey-1: #c1c1c1 !default;
 
 .job_role {
   font-size: 9pt;
+}
+
+.exportButton {
+  float: right;
+  margin-left: 5px;
+}
+
+.button_container {
+  width: 80%;
+  margin: 25px auto;
+  height: 38px;
+  padding: 0 !important;
 }

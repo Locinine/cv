@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Container, Col, Row } from "react-bootstrap";
+import PropTypes from "prop-types";
+import { Container, Col, Row, Button } from "react-bootstrap";
 import _ from "lodash";
 
 import SideBar from "../components/sidebar";
@@ -7,23 +8,34 @@ import { cv_intro, cv_expierence, cv_education } from "../constants";
 
 import "../containers/styles/cv.scss";
 
-class App extends Component {
+class CV extends Component {
   constructor(props) {
     super(props);
-    this.state = { screenWidth: null };
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+    this.state = {};
+
+    _.bindAll(this, ["exportPDF"]);
   }
 
-  componentDidMount() {
-    window.addEventListener("resize", this.updateWindowDimensions());
-  }
+  // shouldComponentUpdate(nextProps) {
+  //   console.log("1. window.innerWidth: ", window.innerWidth);
+  //   console.log("2. nextProps.screenWidth: ", nextProps.screenWidth);
+  //   console.log("3. this.state.screenWidth: ", this.state.screenWidth);
+  //   return (
+  //     nextProps &&
+  //     nextProps.screenWidth !== this.props.screenWidth &&
+  //     this.props.screenWidth != window.innerWidth
+  //   );
+  // }
 
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateWindowDimensions);
-  }
+  // componentDidUpdate(prevProps) {
+  //   prevProps.screenWidth !== this.props.screenWidth &&
+  //   this.props.screenWidth != window.innerWidth
+  //     ? console.log("4. window.innerWidth: ", window.innerWidth)
+  //     : null;
+  // }
 
-  updateWindowDimensions() {
-    this.setState({ screenWidth: window.innerWidth });
+  exportPDF() {
+    // this.resume.save();
   }
 
   render() {
@@ -120,24 +132,47 @@ class App extends Component {
       </React.Fragment>
     );
 
-    const { screenWidth } = this.state;
+    const { screenWidth } = this.props;
+    console.log("screenWidth: ", screenWidth);
 
     return (
-      <Container className="cv_container card_shadow_1">
-        {screenWidth > 750 ? (
-          <Row>
-            <Col md={8}>{mainSections}</Col>
-            <SideBar screenWidth={screenWidth} />
-          </Row>
-        ) : (
-          <React.Fragment>
-            <Col md={8}>{mainSections}</Col>
-            <SideBar screenWidth={screenWidth} />
-          </React.Fragment>
-        )}
-      </Container>
+      <React.Fragment>
+        <div className="button_container container">
+          <Button
+            className="exportButton"
+            variant="danger"
+            onClick={this.exportPDF}
+          >
+            Share
+          </Button>
+          <Button
+            className="exportButton"
+            variant="danger"
+            onClick={this.exportPDF}
+          >
+            Download
+          </Button>
+        </div>
+        <Container className="cv_container card_shadow_1">
+          {screenWidth > 750 ? (
+            <Row>
+              <Col md={8}>{mainSections}</Col>
+              <SideBar screenWidth={screenWidth} />
+            </Row>
+          ) : (
+            <React.Fragment>
+              <Col md={8}>{mainSections}</Col>
+              <SideBar screenWidth={screenWidth} />
+            </React.Fragment>
+          )}
+        </Container>
+      </React.Fragment>
     );
   }
 }
 
-export default App;
+CV.propTypes = {
+  screenWidth: PropTypes.number
+};
+
+export default CV;

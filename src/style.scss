@@ -1,7 +1,11 @@
 $background: #f5f5f5 !default;
 
+body {
+  background: $background !important;
+}
+
 .main_container {
-  background: $background;
+  // background: $background;
   height: 100vh;
   font-size: 10pt;
 }

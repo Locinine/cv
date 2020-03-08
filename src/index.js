@@ -1,9 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 import App from "./app";
 
-import './style.scss';
-import 'bootstrap/dist/css/bootstrap.css';
+import "./style.scss";
+import "bootstrap/dist/css/bootstrap.css";
+// import "material-design-icons/iconfont/material-icons.css";
+import "../public/icons/cv_icons/flaticon.css";
 
 const wrapper = document.getElementById("container");
 wrapper ? ReactDOM.render(<App />, wrapper) : false;

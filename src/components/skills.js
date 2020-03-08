@@ -47,7 +47,7 @@ const data = [
 
 const Skills = () => (
   <Chart
-    width={"300px"}
+    width={"100%"}
     height={"150px"}
     chartType="BarChart"
     loader={<div>Loading Chart</div>}
