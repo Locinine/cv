@@ -13,7 +13,7 @@ class App extends Component {
     super(props);
     this.state = {
       windowWidth: null,
-      isMobile: false
+      mobileBrowser: false
     };
 
     _.bindAll(this, ["handleResize"]);
@@ -30,16 +30,15 @@ class App extends Component {
 
   handleResize() {
     var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-      this.setState({ isMobile: true });
-      console.log("blah");
-    }
-    console.log("blah 2");
-    this.setState({ windowWidth: window.innerWidth });
+
+    this.setState({
+      windowWidth: window.innerWidth,
+      mobileBrowser: isMobile
+    });
   }
 
   render() {
-    const { windowWidth, isMobile } = this.state;
+    const { windowWidth, mobileBrowser } = this.state;
     return (
       <div className="main_container">
         {/* <Navigation title="Farrah Lord-Newcombe" /> */}
@@ -49,7 +48,11 @@ class App extends Component {
           <Route
             path="/cv"
             render={props => (
-              <CV {...props} windowWidth={windowWidth} isMobile={isMobile} />
+              <CV
+                {...props}
+                windowWidth={windowWidth}
+                isMobile={mobileBrowser}
+              />
             )}
           />
           <Route path={"/projects"} component={Projects} />

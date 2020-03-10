@@ -129,7 +129,7 @@ class CV extends Component {
             <br />
           </span>
           <span>
-            isMobile: {isMobile}
+            isMobile: {isMobile.toString()}
             <br />
           </span>
           <span>device: {window.navigator.platform}</span>
