@@ -11,7 +11,10 @@ import Projects from "./containers/projects";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { windowWidth: null };
+    this.state = {
+      windowWidth: null,
+      isMobile: false
+    };
 
     _.bindAll(this, ["handleResize"]);
   }
@@ -26,10 +29,17 @@ class App extends Component {
   }
 
   handleResize() {
+    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+      this.setState({ isMobile: true });
+      console.log("blah");
+    }
+    console.log("blah 2");
     this.setState({ windowWidth: window.innerWidth });
   }
 
   render() {
+    const { windowWidth, isMobile } = this.state;
     return (
       <div className="main_container">
         {/* <Navigation title="Farrah Lord-Newcombe" /> */}
@@ -39,7 +49,7 @@ class App extends Component {
           <Route
             path="/cv"
             render={props => (
-              <CV {...props} windowWidth={this.state.windowWidth} />
+              <CV {...props} windowWidth={windowWidth} isMobile={isMobile} />
             )}
           />
           <Route path={"/projects"} component={Projects} />

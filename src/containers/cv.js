@@ -119,12 +119,20 @@ class CV extends Component {
       </React.Fragment>
     );
 
-    const { windowWidth } = this.props;
+    const { windowWidth, isMobile } = this.props;
 
     return (
       <React.Fragment>
         <div className="button_container container">
-          <span>windowWidth: {windowWidth}</span>
+          <span>
+            windowWidth: {windowWidth}
+            <br />
+          </span>
+          <span>
+            isMobile: {isMobile}
+            <br />
+          </span>
+          <span>device: {window.navigator.platform}</span>
           <Button
             className="exportButton"
             variant="danger"
@@ -144,12 +152,12 @@ class CV extends Component {
           {windowWidth >= screenSizes.small ? (
             <Row>
               <Col md={8}>{mainSections}</Col>
-              <SideBar windowWidth={windowWidth} />
+              <SideBar windowWidth={windowWidth} isMobile={isMobile} />
             </Row>
           ) : (
             <React.Fragment>
               <Col md={8}>{mainSections}</Col>
-              <SideBar windowWidth={windowWidth} />
+              <SideBar windowWidth={windowWidth} isMobile={isMobile} />
             </React.Fragment>
           )}
         </Container>
@@ -159,7 +167,8 @@ class CV extends Component {
 }
 
 CV.propTypes = {
-  windowWidth: PropTypes.number
+  windowWidth: PropTypes.number,
+  isMobile: PropTypes.bool
 };
 
 export default CV;

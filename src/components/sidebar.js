@@ -15,7 +15,7 @@ class SideBar extends Component {
   }
 
   render() {
-    const { windowWidth } = this.props;
+    const { windowWidth, isMobile } = this.props;
 
     const getPersonalInfo = () => {
       //   let personalInfo = [];
@@ -54,7 +54,7 @@ class SideBar extends Component {
 
     const content = (
       <React.Fragment>
-        {windowWidth >= screenSizes.small && (
+        {windowWidth >= screenSizes.small && !isMobile && (
           <Row>
             <h3 className="pd-20 pt-15">Farrah Lord-Newcombe</h3>
           </Row>
@@ -76,7 +76,7 @@ class SideBar extends Component {
       </React.Fragment>
     );
 
-    return windowWidth > 750 ? (
+    return windowWidth > 750 && !isMobile ? (
       <Col md={4} sm={3} className="sidebar_container">
         {content}
       </Col>
@@ -87,7 +87,8 @@ class SideBar extends Component {
 }
 
 SideBar.propTypes = {
-  windowWidth: PropTypes.number
+  windowWidth: PropTypes.number,
+  isMobile: PropTypes.bool
 };
 
 export default SideBar;
