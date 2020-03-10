@@ -41,7 +41,7 @@ class App extends Component {
     const { windowWidth, mobileBrowser } = this.state;
     return (
       <div className="main_container">
-        isMobile ? (
+        mobileBrowser ? (
         <Navigation title="Farrah Lord-Newcombe" />
         ) : <SideNav />
         <Switch>
