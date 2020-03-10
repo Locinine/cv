@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import _ from "lodash";
 
-// import Navigation from "./components/navbar";
+import Navigation from "./components/navbar";
 import SideNav from "./components/sidenav";
 import About from "./containers/about";
 import CV from "./containers/cv";
@@ -41,8 +41,9 @@ class App extends Component {
     const { windowWidth, mobileBrowser } = this.state;
     return (
       <div className="main_container">
-        {/* <Navigation title="Farrah Lord-Newcombe" /> */}
-        <SideNav />
+        isMobile ? (
+        <Navigation title="Farrah Lord-Newcombe" />
+        ) : <SideNav />
         <Switch>
           <Route exact path={"/"} component={About} />
           <Route
