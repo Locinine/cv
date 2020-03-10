@@ -41,9 +41,11 @@ class App extends Component {
     const { windowWidth, mobileBrowser } = this.state;
     return (
       <div className="main_container">
-        mobileBrowser ? (
-        <Navigation title="Farrah Lord-Newcombe" />
-        ) : <SideNav />
+        {mobileBrowser ? (
+          <Navigation title="Farrah Lord-Newcombe" />
+        ) : (
+          <SideNav />
+        )}
         <Switch>
           <Route exact path={"/"} component={About} />
           <Route
