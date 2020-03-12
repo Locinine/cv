@@ -61,13 +61,13 @@ class CV extends Component {
                 </Col>
                 <Col className="company_name">{job.company_name}</Col>
               </Row>
-              <Row>{job.desc}</Row>
+              <Row className="pr-15">{job.desc}</Row>
               <Row>
                 <div className="achieve_resp">
                   Achievements and responsibilities:
                 </div>
               </Row>
-              <Row>
+              <Row className="pr-15">
                 <ul>{getAchievements(job.achievements_response)}</ul>
               </Row>
             </Col>
@@ -95,7 +95,7 @@ class CV extends Component {
               <Row>
                 <h6>{item.org_name}</h6>
               </Row>
-              <Row>
+              <Row className="pr-15">
                 <ul>{getQualifications(item.desc)}</ul>
               </Row>
             </Col>
@@ -124,15 +124,6 @@ class CV extends Component {
     return (
       <React.Fragment>
         <div className="button_container container">
-          <span>
-            windowWidth: {windowWidth}
-            <br />
-          </span>
-          <span>
-            isMobile: {isMobile.toString()}
-            <br />
-          </span>
-          <span>device: {window.navigator.platform}</span>
           <Button
             className="exportButton"
             variant="danger"
@@ -149,7 +140,7 @@ class CV extends Component {
           </Button>
         </div>
         <Container className="cv_container card_shadow_1">
-          {windowWidth >= screenSizes.small ? (
+          {windowWidth > screenSizes.small || !isMobile ? (
             <Row>
               <Col md={8}>{mainSections}</Col>
               <SideBar windowWidth={windowWidth} isMobile={isMobile} />

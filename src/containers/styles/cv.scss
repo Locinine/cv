@@ -9,6 +9,11 @@ $grey-1: #c1c1c1 !default;
   padding: 0 10px;
   text-align: justify;
   text-justify: inter-word;
+
+  // margin-right: calc(20% - 30px) !important;
+  // margin-left: calc(20% + -30px) !important;
+  // margin-top: 25px;
+  // margin-bottom: 20px;
 }
 
 .section-border {
@@ -27,6 +32,17 @@ $grey-1: #c1c1c1 !default;
 .achieve_resp {
   margin: 10px 0;
   font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .achieve_resp {
+    margin: 10px 0;
+    font-weight: 500;
+  }
+
+  .pr-15 {
+    padding-right: 15px;
+  }
 }
 
 .job_role {

@@ -1,60 +1,60 @@
 import React from "react";
-import { Chart } from "react-google-charts";
+import { Col, Row } from "react-bootstrap";
+import _ from "lodash";
 
 import "../components/styles/skills.scss";
 
-const options = {
-  hAxis: {
-    title: "Skill Proficiency",
-    minValue: 0,
-    maxValue: 5,
-    gridlines: {
-      color: "transparent"
-    }
+const skillData = [
+  {
+    name: "React JS",
+    proficiency: 12
   },
-  vAxis: {
-    gridlines: {
-      color: "transparent"
-    }
+  {
+    name: "SCSS",
+    proficiency: 12
   },
-  chartArea: {
-    height: "100%",
-    width: "50%"
+  {
+    name: "Redux",
+    proficiency: 10
   },
-  backgroundColor: { fill: "transparent" },
-  bars: "horizontal",
-  legend: { position: "none" },
-  isStacked: true,
-  colors: ["#ffffff", "#c1c1c1"],
-  enableInteractivity: false
-  // tooltip: { trigger: "none" }
-};
-
-const data = [
-  [
-    { type: "string", id: "Skill" },
-    { type: "number", id: "Proficiency" },
-    { type: "number", id: "Deficit" }
-  ],
-  ["React JS", 5, 0],
-  ["Go", 5, 0],
-  ["Scss", 4, 1],
-  ["Angular Material JS", 4, 1],
-  ["Redux", 3, 2],
-  ["Kubenetes", 1, 4],
-  ["SharePoint 2010/2013", 2, 3]
+  {
+    name: "Angular Material JS",
+    proficiency: 8
+  },
+  {
+    name: "Go",
+    proficiency: 5
+  },
+  {
+    name: "SharePoint 2010/2013",
+    proficiency: 7
+  },
+  {
+    name: "Kubernetes",
+    proficiency: 4
+  }
 ];
 
+const getSkills = () => {
+  let skillBars = [];
+  _.forEach(skillData, function(skill) {
+    skillBars.push(
+      <Row className="skill">
+        <Col className="skill_pro" md={skill.proficiency}>
+          {skill.name}
+        </Col>
+        <Col className="skill_deficit"></Col>
+      </Row>
+    );
+  });
+
+  return skillBars;
+};
+
 const Skills = () => (
-  <Chart
-    width={"100%"}
-    height={"150px"}
-    chartType="BarChart"
-    loader={<div>Loading Chart</div>}
-    data={data}
-    options={options}
-    rootProps={{ "data-testid": "1" }}
-  />
+  <Row>
+    <Col>{getSkills()}</Col>
+  </Row>
 );
 
 export default Skills;

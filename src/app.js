@@ -8,6 +8,8 @@ import About from "./containers/about";
 import CV from "./containers/cv";
 import Projects from "./containers/projects";
 
+import { screenSizes } from "./constants";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -30,6 +32,8 @@ class App extends Component {
 
   handleResize() {
     var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    console.log("isMobile: ", isMobile);
+    console.log("window.innerWidth: ", window.innerWidth);
 
     this.setState({
       windowWidth: window.innerWidth,
@@ -41,10 +45,10 @@ class App extends Component {
     const { windowWidth, mobileBrowser } = this.state;
     return (
       <div className="main_container">
-        {mobileBrowser ? (
-          <Navigation title="Farrah Lord-Newcombe" />
-        ) : (
+        {windowWidth > screenSizes.small && !mobileBrowser ? (
           <SideNav />
+        ) : (
+          <Navigation title="Farrah Lord-Newcombe" />
         )}
         <Switch>
           <Route exact path={"/"} component={About} />
