@@ -30,7 +30,10 @@ const Navigation: React.FC<NavigationProps> = ({ title, cvRef }) => {
       }}
     >
       <Container fluid>
-        <Navbar.Brand href="#">
+        <Navbar.Brand
+          href="#"
+          className={shouldExpand ? "position-absolute" : ""}
+        >
           <h2>{title}</h2>
         </Navbar.Brand>
         <Navbar.Toggle
@@ -51,16 +54,24 @@ const Navigation: React.FC<NavigationProps> = ({ title, cvRef }) => {
             </div>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <Nav className="justify-content-end flex-grow-1 pe-3">
-              <LinkContainer to="/">
-                <Nav.Link>About</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/projects">
-                <Nav.Link>Projects</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/cv">
-                <Nav.Link>CV</Nav.Link>
-              </LinkContainer>
+            <Nav
+              className={
+                shouldExpand
+                  ? "flex-grow-1 pe-3"
+                  : "justify-content-between flex-grow-1 pe-3"
+              }
+            >
+              <div className={shouldExpand ? "d-flex m-auto" : ""}>
+                <LinkContainer to="/">
+                  <Nav.Link>About</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/projects">
+                  <Nav.Link>Projects</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/cv">
+                  <Nav.Link>CV</Nav.Link>
+                </LinkContainer>
+              </div>
               <Nav.Item>
                 <Button
                   variant="outline-secondary"
