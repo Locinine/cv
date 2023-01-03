@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import Navigation from "./components/navbar";
@@ -9,6 +9,7 @@ import Projects from "./containers/projects";
 import "./App.scss";
 
 const App: React.FC = () => {
+  const cvRef = useRef<HTMLDivElement>(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const handleResize = () => {
@@ -26,10 +27,13 @@ const App: React.FC = () => {
 
   return (
     <div className="main_container">
-      <Navigation title="Farrah Lord-Newcombe" />
+      <Navigation title="Farrah Lord-Newcombe" cvRef={cvRef} />
       <Routes>
         <Route path={"/"} element={<About />} />
-        <Route path="/cv" element={<CV windowWidth={windowWidth} />} />
+        <Route
+          path="/cv"
+          element={<CV windowWidth={windowWidth} cvRef={cvRef} />}
+        />
         <Route path={"/projects"} element={<Projects />} />
         <Route element={<About />} />
       </Routes>

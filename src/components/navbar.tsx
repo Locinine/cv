@@ -3,16 +3,18 @@ import { Navbar, Nav, Button, Container, Offcanvas } from "react-bootstrap";
 import { screenSizes } from "../constants";
 import { LinkContainer } from "react-router-bootstrap";
 import { GrFormClose } from "react-icons/gr";
+import { exportPDF } from "../utils";
 
 import "./styles/navbar.scss";
 
 interface NavigationProps {
   title: string;
+  cvRef: React.RefObject<HTMLDivElement>;
 }
 
-const Navigation: React.FC<NavigationProps> = ({ title }) => {
+const Navigation: React.FC<NavigationProps> = ({ title, cvRef }) => {
   const [navOpen, setNavOpen] = useState<Boolean>(false);
-  const currentBraekpoint = window.innerWidth >= screenSizes.md;
+  const shouldExpand = window.innerWidth >= screenSizes.md;
 
   const toggleNavbar = () => setNavOpen(!navOpen);
 
@@ -20,9 +22,12 @@ const Navigation: React.FC<NavigationProps> = ({ title }) => {
     <Navbar
       bg="dark"
       variant="dark"
-      expand={currentBraekpoint}
-      // className="mb-3"
-      onSelect={toggleNavbar}
+      expand={shouldExpand}
+      onSelect={() => {
+        if (!shouldExpand) {
+          toggleNavbar();
+        }
+      }}
     >
       <Container fluid>
         <Navbar.Brand href="#">
@@ -57,7 +62,11 @@ const Navigation: React.FC<NavigationProps> = ({ title }) => {
                 <Nav.Link>CV</Nav.Link>
               </LinkContainer>
               <Nav.Item>
-                <Button variant="outline-secondary" size="sm">
+                <Button
+                  variant="outline-secondary"
+                  size="sm"
+                  onClick={() => exportPDF(cvRef?.current)}
+                >
                   Download CV
                 </Button>
               </Nav.Item>

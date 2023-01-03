@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import { Col, Row, Button, Accordion } from "react-bootstrap";
-import jsPDF from "jspdf";
-import html2canvas from "html2canvas";
 import { HiOutlineDownload } from "react-icons/hi";
+
+import { exportPDF } from "../../utils";
 import {
   summary,
   experience,
@@ -18,38 +18,10 @@ import "./styles/cv.scss";
 
 interface CVProps {
   windowWidth: Number;
+  cvRef: React.RefObject<HTMLDivElement>;
 }
-const CV: React.FC<CVProps> = ({ windowWidth }) => {
-  const cvRef = useRef<HTMLDivElement>(null);
 
-  const exportPDF = () => {
-    if (cvRef.current) {
-      // const temp = cvRef.current;
-      // temp.removeAttribute("class");
-      html2canvas(cvRef.current).then((canvas) => {
-        const imgData = canvas.toDataURL("image/png");
-        const imgWidth = 210;
-        const pageHeight = 297;
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
-        let heightLeft = imgHeight;
-
-        const pdf = new jsPDF("p", "mm", "a4");
-        let position = 0;
-
-        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
-
-        while (heightLeft >= 0) {
-          position = heightLeft - imgHeight;
-          pdf.addPage();
-          pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
-          heightLeft -= pageHeight;
-        }
-        pdf.save("FarrahCV.pdf");
-      });
-    }
-  };
-
+const CV: React.FC<CVProps> = ({ windowWidth, cvRef }) => {
   const expierenceSection = experience.map(
     ({ dates, role, company_name, desc, tech }, i) => (
       <div className={i !== 0 && role ? "border-top pt-3" : ""}>
@@ -141,7 +113,7 @@ const CV: React.FC<CVProps> = ({ windowWidth }) => {
         className="download bs-1 d-none d-md-block d-sm-none"
         variant="secondary"
         size="sm"
-        onClick={exportPDF}
+        onClick={() => exportPDF(cvRef?.current)}
         data-html2canvas-ignore
       >
         <HiOutlineDownload />
