@@ -56,7 +56,7 @@ export const contracts = [
       "Worked as part of a team to build a bespoke social media website with features such as newsfeeds, live streaming, instant messaging and more. Took ownership ensuring the UI matched the designs and suggesting improvements as needed.",
   },
   {
-    dates: "11/2021-11/2021",
+    dates: "11/2021",
     org_name: "Carv, Remote",
     details:
       "Brought in short notice to help get their website updated in time for black friday. Reducing functionality along with the look and feel, working closely with the team lead and UI/UX. I learnt VueJS from scratch as I worked on site.",
@@ -80,14 +80,23 @@ export const contact_info = {
 
 export const skills = ["React JS", "Redux", "SCSS/CSS", "Git", "Typescript"];
 
+// export const screenSizes = {
+//   // Extra Small devices (portrait phones, 575px and down)
+//   // Small devices (landscape phones, 576px and up)
+//   small: 567,
+//   // Medium devices (tablets, 768px and up)
+//   medium: 764,
+//   // Large devices (desktops, 992px and up)
+//   large: 992,
+//   // Extra large devices (large desktops, 1200px and up)
+//   xlarge: 1200,
+// };
+
 export const screenSizes = {
-  // Extra Small devices (portrait phones, 575px and down)
-  // Small devices (landscape phones, 576px and up)
-  small: 567,
-  // Medium devices (tablets, 768px and up)
-  medium: 764,
-  // Large devices (desktops, 992px and up)
-  large: 992,
-  // Extra large devices (large desktops, 1200px and up)
-  xlarge: 1200,
+  xs: 0,
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1200,
+  xxl: 1400,
 };

@@ -6,15 +6,14 @@ import About from "./containers/about";
 import CV from "./containers/cv/cv";
 import Projects from "./containers/projects";
 
-import "./App.css";
+import "./App.scss";
 
 const App: React.FC = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [isMobile, setIsMobile] = useState(false);
 
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
-    setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
+    // setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
   };
 
   useEffect(() => {
@@ -30,10 +29,7 @@ const App: React.FC = () => {
       <Navigation title="Farrah Lord-Newcombe" />
       <Routes>
         <Route path={"/"} element={<About />} />
-        <Route
-          path="/cv"
-          element={<CV windowWidth={windowWidth} isMobile={isMobile} />}
-        />
+        <Route path="/cv" element={<CV windowWidth={windowWidth} />} />
         <Route path={"/projects"} element={<Projects />} />
         <Route element={<About />} />
       </Routes>
