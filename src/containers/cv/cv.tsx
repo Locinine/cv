@@ -166,7 +166,7 @@ const CV: React.FC<CVProps> = ({ windowWidth }) => {
   );
 
   const MobileContent = (
-    <Accordion defaultActiveKey={["0", "1"]} flush>
+    <Accordion defaultActiveKey={["0"]} flush>
       {[...sections.leftCol, ...sections.rightCol].map(
         ({ title, content }, i) => (
           <Accordion.Item eventKey={String(i)}>
