@@ -1,0 +1,311 @@
+// n is number of stars required
+@function multiple-box-shadow($n){
+  $value: '#{random(2000)}px #{random(2000)}px #FFF';
+  @for $i from 2 through $n {
+    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
+  }
+  @return unquote($value);
+}
+
+// @mixin mountain($size, $color, $translate, $scale) {
+@mixin mountain($size, $color) {
+  width: 0;
+  height: 0;
+  border-left: $size solid transparent;
+  border-right: $size solid transparent;
+  border-bottom: $size solid $color;
+
+  // -webkit-transform: translateZ($translate) scale($scale);
+  // transform: translateZ($translate) scale($scale);
+}
+
+$navbarHieght: 52px;
+$shadows-small:  multiple-box-shadow(350);
+$shadows-medium: multiple-box-shadow(100);
+$shadows-big:    multiple-box-shadow(50);
+$dark-purple: #0d061b;
+$mid-purple: #180e2c;
+$light-purple: #261d38;
+
+.background {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    padding: 0 !important;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+    background-image: url("../images/build.jpg");
+}
+
+.parallax {
+  -webkit-perspective: 100px;
+  perspective: 100px;
+  height: 150vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.starsContainer {
+  z-index: -4;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  // background: radial-gradient(ellipse at bottom, #60290c 0%, #1c110b 40%, #0d061b 80%, #05000e 90%);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../images/landing_bg.png");
+
+  -webkit-transform: translateZ(-500px) scale(6);
+  transform: translateZ(-500px) scale(6);
+
+  .stars {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: $shadows-small;
+    animation: animStar 50s linear infinite;
+    &:after {
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 1px;
+      height: 1px;
+      background: transparent;
+      box-shadow: $shadows-small;
+    }
+  }
+
+  .stars2 {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: $shadows-medium;
+    animation: animStar 100s linear infinite;
+    &:after {
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 2px;
+      height: 2px;
+      background: transparent;
+      box-shadow: $shadows-medium;
+    }
+  }
+
+  .stars3 {
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: $shadows-big;
+    animation: animStar 150s linear infinite;
+    &:after {
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 3px;
+      height: 3px;
+      background: transparent;
+      box-shadow: $shadows-big;
+    }
+  }
+
+  @keyframes animStar {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-2000px);
+    }
+  }
+}
+
+.moon {
+  z-index: -1;
+  background: #c4c4c4;
+  height: 10em;
+  width: 10em;
+  border-radius: 50%;
+  left: calc(-100% - 200px);
+  top: -500px;
+  filter: drop-shadow(0px 0px 125px #a5a5a5);
+  // box-shadow: 0 0 5px 0.6em rgba(255, 255, 255, 0.07),
+    // 0 0 7px 1.2em rgba(255, 255, 255, 0.05), 0 0 8px 1.8em rgba(255, 255, 255, 0.02);
+    
+  -webkit-transform: translateZ(-400px) scale(13);
+  transform: translateZ(-400px) scale(13);
+
+  &:after {
+    position: absolute;
+    content: "";
+    background-color: #c4c4c4;
+    height: 0.9em;
+    width: 0.9em;
+    border-radius: 50%;
+    top: 3.75em;
+    left: 1.25em;
+    box-shadow: 0.9em -2.1em 0 0.2em #e6e6e6, 1.5em -0.3em 0 -0.06em #e6e6e6;
+  }
+}
+
+.title {
+  z-index: -2;
+  top: 20%;
+  right: 10%;
+
+  color: rgb(207, 202, 195);
+  text-align: right;
+  letter-spacing: 7px;
+
+  -webkit-transform: translateZ(-300px) scale(4);
+  transform: translateZ(-300px) scale(4);
+
+  span {
+    background: -webkit-linear-gradient(white, #38495a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+// .mountainsContainer {
+//   z-index: -1;
+//   display: flex;
+// 	align-items: flex-end;
+// 	justify-content: center;
+// 	height: 100vh;
+// 	overflow: hidden;
+//   position: relative;
+
+//   -webkit-transform: translateZ(-100px) scale(2);
+//   transform: translateZ(-100px) scale(2);
+
+//   .mountain1 {
+//     @include mountain(35vh, $mid-purple);
+//     &:before,
+//     &:after {
+//       content: "";
+//       position: absolute;
+//       bottom: 0;
+//     }
+//     &:before {
+//       left: 0;
+//       // @include mountain(25vh, $dark-purple, -500px, 1);
+//       @include mountain(25vh, $dark-purple);
+//     }
+//     &:after {
+//       right: 0;
+//       @include mountain(25vh, $dark-purple);
+//     }
+//   }
+// }
+
+// .floor {
+//   z-index: 0;
+//   display: flex;
+//   align-items: flex-end;
+//   justify-content: center;
+//   height: 100vh;
+//   overflow: hidden;
+//   position: relative;
+//   margin-top: 50vh;
+  
+//   // background-repeat: no-repeat;
+//   // background-size: contain;
+//   // background-position: top;
+//   // background-image: url("../images/foreground_mountains.png")
+
+//   padding: 0 !important;
+//   background: #1F072A;
+
+//   -webkit-transform: translateZ(-100px) scale(2);
+//   transform: translateZ(-100px) scale(2);
+
+//   &:after {
+//     position: absolute;
+//     content: " ";
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     z-index: 10;
+//     background-color: rgba($mid-purple, 0.5);
+//   }
+// }
+
+
+.mountain_background {
+  z-index: -3;
+  display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	height: 100vh;
+	overflow: hidden;
+  position: relative;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../images/background_mountains.png");
+
+  -webkit-transform: translateZ(-100px) scale(3);
+  transform: translateZ(-100px) scale(3);
+}
+
+.painter {
+  z-index: -2;
+	height: 100vh;
+	overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../images/painter.png");
+  margin-top: -100px;
+
+  -webkit-transform: translateZ(-200px) scale(3);
+  transform: translateZ(-200px) scale(3);
+}
+
+.mountain_foreground {
+  z-index: 1;
+	height: 100vh;
+	overflow: hidden;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../images/foreground_mountains.png");
+
+  -webkit-transform: translateZ(-100px) scale(2);
+  transform: translateZ(-100px) scale(2);
+}
+
+.floor {
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  margin-top: 90vh;
+  padding: 0 !important;
+  background: #1F072A;
+  padding: 0 !important;
+  background: #1F072A;
+}

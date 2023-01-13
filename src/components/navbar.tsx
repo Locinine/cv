@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Navbar, Nav, Button, Container, Offcanvas } from "react-bootstrap";
 import { screenSizes } from "../constants";
 import { LinkContainer } from "react-router-bootstrap";
 import { GrFormClose } from "react-icons/gr";
-import { exportPDF } from "../utils";
+// import { exportPDF } from "../utils";
+import { useReactToPrint } from "react-to-print";
 
 import "./styles/navbar.scss";
 
@@ -13,16 +15,44 @@ interface NavigationProps {
 }
 
 const Navigation: React.FC<NavigationProps> = ({ title, cvRef }) => {
+  const location = useLocation();
   const [navOpen, setNavOpen] = useState<Boolean>(false);
+  const [background, setBackground] = useState<string>("transparent");
   const shouldExpand = window.innerWidth >= screenSizes.md;
+
+  const onScroll = () => {
+    if (window.scrollY > 50) {
+      setBackground("dark");
+    } else {
+      setBackground("transparent");
+    }
+  };
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setBackground("transparent");
+      window.addEventListener("scroll", onScroll);
+    } else if (background !== "dark") {
+      setBackground("dark");
+    }
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [location.pathname]);
 
   const toggleNavbar = () => setNavOpen(!navOpen);
 
+  const exportPDF = useReactToPrint({
+    content: () => cvRef.current,
+  });
+
   return (
     <Navbar
-      bg="dark"
+      bg={background}
       variant="dark"
       expand={shouldExpand}
+      sticky="top"
       onSelect={() => {
         if (!shouldExpand) {
           toggleNavbar();
@@ -34,7 +64,7 @@ const Navigation: React.FC<NavigationProps> = ({ title, cvRef }) => {
           href="#"
           className={shouldExpand ? "position-absolute" : ""}
         >
-          <h2>{title}</h2>
+          <h4>{title}</h4>
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls={`offcanvasNavbar-expand-xs`}
@@ -76,7 +106,7 @@ const Navigation: React.FC<NavigationProps> = ({ title, cvRef }) => {
                 <Button
                   variant="outline-secondary"
                   size="sm"
-                  onClick={() => exportPDF(cvRef?.current)}
+                  onClick={exportPDF}
                 >
                   Download CV
                 </Button>

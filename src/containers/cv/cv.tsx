@@ -1,8 +1,8 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Col, Row, Button, Accordion } from "react-bootstrap";
 import { HiOutlineDownload } from "react-icons/hi";
-
-import { exportPDF } from "../../utils";
+import { useReactToPrint } from "react-to-print";
+// import { generateAndSavePDF } from "../../utils";
 import {
   summary,
   experience,
@@ -28,9 +28,11 @@ const CV: React.FC<CVProps> = ({ windowWidth, cvRef }) => {
         <h4>{role}</h4>
         <h5>{company_name}</h5>
         <p>{dates}</p>
-        <p>
-          Key Technologies: <br /> {tech}
-        </p>
+        {tech && (
+          <p>
+            Key Technologies: <br /> {tech}
+          </p>
+        )}
         <p>{desc}</p>
       </div>
     )
@@ -62,14 +64,11 @@ const CV: React.FC<CVProps> = ({ windowWidth, cvRef }) => {
   ));
 
   const skillsSection = (
-    <p>
-      {skills.map((skill) => (
-        <>
-          {skill}
-          <br />
-        </>
+    <Row xs={2} className="px-2">
+      {skills.map((skill, i) => (
+        <Col>{skill}</Col>
       ))}
-    </p>
+    </Row>
   );
 
   const sections = {
@@ -100,41 +99,49 @@ const CV: React.FC<CVProps> = ({ windowWidth, cvRef }) => {
         title: "Education",
         content: educationSection,
       },
-      {
-        title: "Interests",
-        content: <p>{interests}</p>,
-      },
+      // {
+      //   title: "Interests",
+      //   content: <p>{interests}</p>,
+      // },
     ],
   };
 
+  const exportPDF = useReactToPrint({
+    content: () => cvRef.current,
+    // print: async (source: HTMLIFrameElement) => {
+    //   await generateAndSavePDF(source);
+    // },
+  });
+
   const Content = (
-    <Row>
+    <>
       <Button
         className="download bs-1 d-none d-md-block d-sm-none"
         variant="secondary"
         size="sm"
-        onClick={() => exportPDF(cvRef?.current)}
-        data-html2canvas-ignore
+        onClick={exportPDF}
       >
         <HiOutlineDownload />
       </Button>
-      <Col md={9} sm={3} className="pt-20">
-        {sections.leftCol.map(({ title, content }) => (
-          <>
-            <h3>{title}</h3>
-            <p>{content}</p>
-          </>
-        ))}
-      </Col>
-      <Col md={3} sm={3} className="sidebar_container">
-        {sections.rightCol.map(({ title, content }) => (
-          <>
-            <h3>{title}</h3>
-            <p>{content}</p>
-          </>
-        ))}
-      </Col>
-    </Row>
+      <Row ref={cvRef}>
+        <Col md={9} sm={8} className="pt-20">
+          {sections.leftCol.map(({ title, content }) => (
+            <>
+              <h3>{title}</h3>
+              <p>{content}</p>
+            </>
+          ))}
+        </Col>
+        <Col md={3} sm={3} className="sidebar_container">
+          {sections.rightCol.map(({ title, content }) => (
+            <>
+              <h3>{title}</h3>
+              <p>{content}</p>
+            </>
+          ))}
+        </Col>
+      </Row>
+    </>
   );
 
   const MobileContent = (
@@ -153,7 +160,7 @@ const CV: React.FC<CVProps> = ({ windowWidth, cvRef }) => {
   );
 
   return (
-    <div className="cv_container bs-1" ref={cvRef}>
+    <div className="cv_container bs-1">
       {windowWidth > screenSizes.md ? Content : MobileContent}
     </div>
   );

@@ -16,6 +16,7 @@ $background-grey-1: #dedede !default;
   padding: 0 0 5px 0;
   text-align: justify;
   text-justify: inter-word;
+    font-family: 'Nunito', sans-serif;
   .accordion-button:not(.collapsed) {
     color: black !important;
     background: $background-grey-1 !important;
@@ -50,27 +51,6 @@ $background-grey-1: #dedede !default;
   }
 }
 
-@media (min-width: 768px) { 
-  .cv_container {
-    width: 21cm;
-    margin: 25px auto;
-    padding: 0 10px;
-    border-radius: 2px;  
-    
-    h3 {
-      padding: 0 20px;
-    }
-    
-    h4 {
-      padding: 0 10px;
-    }
-    
-    h5 {
-      padding: 0 10px;
-    }
-  }
-}
-
 .section-border {
   border-width: 1px 0;
   border-style: solid;
@@ -89,17 +69,6 @@ $background-grey-1: #dedede !default;
   font-weight: 500;
 }
 
-@media (min-width: 768px) {
-  .achieve_resp {
-    margin: 10px 0;
-    font-weight: 500;
-  }
-
-  .pr-15 {
-    padding-right: 15px;
-  }
-}
-
 .job_role {
   font-size: 9pt;
 }
@@ -114,4 +83,30 @@ $background-grey-1: #dedede !default;
   margin: 25px auto;
   height: 38px;
   padding: 0 !important;
+}
+
+@media (min-width: 768px) { 
+  .cv_container {
+    width: 21cm;
+    margin: 25px auto;
+    padding: 0 10px;
+    border-radius: 2px;  
+
+    h3 {
+      padding: 0 20px;
+    }
+    
+    h4, h5 {
+      padding: 0 10px;
+    }
+  }
+
+  .achieve_resp {
+    margin: 10px 0;
+    font-weight: 500;
+  }
+
+  .pr-15 {
+    padding-right: 15px;
+  }
 }
