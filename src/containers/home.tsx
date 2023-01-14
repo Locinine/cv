@@ -1,8 +1,5 @@
 import React from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-// import * as Dream from "../images/dream.jpg";
-// import * as mountain from "../images/mountains.png";
-
 import "./home.scss";
 
 const Home = () => {

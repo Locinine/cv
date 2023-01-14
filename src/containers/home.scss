@@ -95,7 +95,7 @@ $shadows-big:    multiple-box-shadow(50);
   height: 20em;
   width: 20em;
   border-radius: 50%;
-  left: 14%;
+  left: calc(50% - 10em);
   top: 20%;
   filter: drop-shadow(0px 0px 125px #a5a5a5);
   // box-shadow: 0 0 5px 0.6em rgba(255, 255, 255, 0.07),
@@ -140,7 +140,7 @@ $shadows-big:    multiple-box-shadow(50);
 .painter {
 	height: 100vh;
   width: 100vw;
-  top: 0;
+  top: 15%;
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -150,7 +150,7 @@ $shadows-big:    multiple-box-shadow(50);
 
 .mountain_foreground {
 	height: 100vh;
-  margin-top: -100vh;
+  top: -85%;
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -186,5 +186,13 @@ $shadows-big:    multiple-box-shadow(50);
   .moon {
     left: 10%;
     top: 12%;
+  }
+
+  .painter {
+    top: 0;
+  }
+
+  .mountain_foreground {
+    top: -100%;
   }
 }
