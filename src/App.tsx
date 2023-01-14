@@ -29,12 +29,12 @@ const App: React.FC = () => {
     <div className="main_container">
       <Navigation title="Farrah Lord-Newcombe" cvRef={cvRef} />
       <Routes>
-        <Route path={"/"} element={<About />} />
+        <Route path={"/cv/home"} element={<About />} />
         <Route
-          path="/cv"
+          path="/cv/cv"
           element={<CV windowWidth={windowWidth} cvRef={cvRef} />}
         />
-        <Route path={"/projects"} element={<Projects />} />
+        <Route path={"/cv/projects"} element={<Projects />} />
         <Route element={<About />} />
       </Routes>
     </div>

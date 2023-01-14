@@ -92,17 +92,17 @@ const Navigation: React.FC<NavigationProps> = ({ title, cvRef }) => {
               }
             >
               <div className={shouldExpand ? "d-flex m-auto" : ""}>
-                <LinkContainer to="/">
-                  <Nav.Link>About</Nav.Link>
+                <LinkContainer to="/cv/home">
+                  <Nav.Link>Home</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/projects">
+                <LinkContainer to="/cv/projects">
                   <Nav.Link>Projects</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/cv">
+                <LinkContainer to="/cv/cv">
                   <Nav.Link>CV</Nav.Link>
                 </LinkContainer>
               </div>
-              <Nav.Item>
+              {/* <Nav.Item>
                 <Button
                   variant="outline-secondary"
                   size="sm"
@@ -110,7 +110,7 @@ const Navigation: React.FC<NavigationProps> = ({ title, cvRef }) => {
                 >
                   Download CV
                 </Button>
-              </Nav.Item>
+              </Nav.Item> */}
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
