@@ -1,10 +1,9 @@
 // Override default variables before the import
-$background: #f5f5f5 !default;
-
 body {
-  background: $background !important;
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(31,7,42,1) 100%); 
   font-size: 12px;
-  // overflow: hidden;
+  min-height: 100vh;
 }
 
 .main_container {
