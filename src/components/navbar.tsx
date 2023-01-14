@@ -92,13 +92,13 @@ const Navigation: React.FC<NavigationProps> = ({ title, cvRef }) => {
               }
             >
               <div className={shouldExpand ? "d-flex m-auto" : ""}>
-                <LinkContainer to="/cv/home">
+                <LinkContainer to="/">
                   <Nav.Link>Home</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/cv/projects">
+                <LinkContainer to="/projects">
                   <Nav.Link>Projects</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/cv/cv">
+                <LinkContainer to="/cv">
                   <Nav.Link>CV</Nav.Link>
                 </LinkContainer>
               </div>

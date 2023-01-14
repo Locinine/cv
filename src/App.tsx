@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import Navigation from "./components/navbar";
-import About from "./containers/about";
+import Home from "./containers/home";
 import CV from "./containers/cv/cv";
 import Projects from "./containers/projects";
 
@@ -29,13 +29,13 @@ const App: React.FC = () => {
     <div className="main_container">
       <Navigation title="Farrah Lord-Newcombe" cvRef={cvRef} />
       <Routes>
-        <Route path={"/cv/home"} element={<About />} />
+        <Route path={"/"} element={<Home />} />
         <Route
-          path="/cv/cv"
+          path="/cv"
           element={<CV windowWidth={windowWidth} cvRef={cvRef} />}
         />
-        <Route path={"/cv/projects"} element={<Projects />} />
-        <Route element={<About />} />
+        <Route path={"/projects"} element={<Projects />} />
+        <Route element={<Home />} />
       </Routes>
     </div>
   );
