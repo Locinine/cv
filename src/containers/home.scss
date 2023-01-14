@@ -27,7 +27,7 @@ $shadows-big:    multiple-box-shadow(50);
 .starsContainer {
   background-size: cover;
   background-position: center;
-  background-image: url("../images/landing_bg.png");
+  background-image: url("../images/landing_bg.jpg");
 
   .stars {
     width: 1px;
@@ -114,9 +114,26 @@ $shadows-big:    multiple-box-shadow(50);
   }
 }
 
+// .moon {
+//   height: 120vh;
+//   left: calc(50% - 10em);
+//   top: 20%;
+
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center;
+//   background-image: url("../images/moon.png");
+//   filter: drop-shadow(0px 0px 125px #a5a5a5);
+//   // box-shadow: 0 0 5px 0.6em rgba(255, 255, 255, 0.07),
+//     // 0 0 7px 1.2em rgba(255, 255, 255, 0.05), 0 0 8px 1.8em rgba(255, 255, 255, 0.02);
+
+// }
+
 .title {
-  top: 30%;
-  right: 0;
+  // top: 30%;
+  // right: 0;
+  top: 10.5%;
+  z-index: 10;
 
   color: rgb(207, 202, 195);
   text-align: center;
@@ -138,9 +155,14 @@ $shadows-big:    multiple-box-shadow(50);
 }
 
 .painter {
-	height: 100vh;
-  width: 100vw;
-  top: 15%;
+  height: 240px;
+  width: 110px;
+  top: 63%;
+  left: 61%;
+
+	// height: 100vh;
+  // width: 100vw;
+  // top: 15%;
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -178,8 +200,9 @@ $shadows-big:    multiple-box-shadow(50);
 
 @media (min-width: 768px) { 
   .title {
-    top: 20%;
+    // top: 20%;
     right: 8%;
+    top: 6%;
     text-align: right;
   }
 
@@ -189,7 +212,8 @@ $shadows-big:    multiple-box-shadow(50);
   }
 
   .painter {
-      top: 0;
+      // top: 0;
+      top: 63%;
   }
 
   .mountain_foreground {

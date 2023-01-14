@@ -16,22 +16,25 @@ const Home = () => {
           <ParallaxLayer offset={0} speed={-0.1}>
             <div className="mountain_background parallax-layer" />
           </ParallaxLayer>
+          {/* <ParallaxLayer offset={0} speed={-0.1}>
+            <div className="moon parallax-layer" />
+          </ParallaxLayer> */}
           <ParallaxLayer offset={0} speed={-0.1}>
             <div className="moon parallax-layer" />
-            <div className="title parallax-layer">
-              <div className="text-white">
-                <h1 className="mb-3">Explore the possibilities</h1>
-                <h2 className="mb-3">Creative Development</h2>
-                <a
-                  className="btn pt-10 mt-5 btn-outline-light btn-lg"
-                  href="#!"
-                  role="button"
-                >
-                  Get in touch
-                </a>
-              </div>
-            </div>
           </ParallaxLayer>
+          <div className="title parallax-layer">
+            <div className="text-white">
+              <h1 className="mb-3">Explore the possibilities</h1>
+              <h2 className="mb-3">Creative Development</h2>
+              <a
+                className="btn pt-10 mt-5 btn-outline-light btn-lg"
+                href="#!"
+                role="button"
+              >
+                Get in touch
+              </a>
+            </div>
+          </div>
           <ParallaxLayer offset={0} speed={0.05}>
             <div className="painter parallax-layer" />
           </ParallaxLayer>
