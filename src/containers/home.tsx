@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <>
       <div className="parallax" style={{ paddingLeft: 0 }}>
-        <Parallax pages={2} style={{ top: "0", left: "0" }}>
+        <Parallax pages={3} style={{ top: "0", left: "0" }}>
           <ParallaxLayer offset={0} speed={0} className="starsContainer">
             <div className="stars"></div>
             <div className="stars2"></div>
@@ -42,7 +42,10 @@ const Home = () => {
             <div className="mountain_foreground parallax-layer" />
           </ParallaxLayer>
           <ParallaxLayer offset={1} speed={0}>
-            <div className="floor" />
+            <div className="section-1" />
+          </ParallaxLayer>
+          <ParallaxLayer style={{ zIndex: "-1" }} offset={2} speed={0}>
+            <div className="section-2" />
           </ParallaxLayer>
         </Parallax>
       </div>

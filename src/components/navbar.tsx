@@ -29,7 +29,7 @@ const Navigation: React.FC<NavigationProps> = ({ title, cvRef }) => {
   };
 
   useEffect(() => {
-    if (location.pathname === "/cv/home") {
+    if (location.pathname === "/") {
       setBackground("transparent");
       window.addEventListener("scroll", onScroll);
     } else if (background !== "dark") {

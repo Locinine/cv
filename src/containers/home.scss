@@ -139,7 +139,8 @@ $shadows-big:    multiple-box-shadow(50);
 
 .painter {
 	height: 100vh;
-  top: 3vh;
+  width: 100vw;
+  top: 0;
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -157,13 +158,22 @@ $shadows-big:    multiple-box-shadow(50);
   background-image: url("../images/foreground_mountains.png");
 }
 
-.floor {
+.section-1 {
   display: flex;
   align-items: flex-end;
   height: 100vh;
   position: relative;
   padding: 0 !important;
   background: #1F072A;
+}
+
+.section-2 {
+  display: flex;
+  align-items: flex-end;
+  height: 100vh;
+  position: relative;
+  padding: 0 !important;
+  background: #e7e7e7;
 }
 
 @media (min-width: 768px) { 
