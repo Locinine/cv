@@ -16,9 +16,6 @@ const Home = () => {
           <ParallaxLayer offset={0} speed={-0.1}>
             <div className="mountain_background parallax-layer" />
           </ParallaxLayer>
-          {/* <ParallaxLayer offset={0} speed={-0.1}>
-            <div className="moon parallax-layer" />
-          </ParallaxLayer> */}
           <ParallaxLayer offset={0} speed={-0.1}>
             <div className="moon parallax-layer" />
           </ParallaxLayer>
