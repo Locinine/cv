@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 import Navigation from "./components/navbar";
 import Home from "./containers/home";
-import CV from "./containers/cv/cv";
+import CV from "./containers/cv";
 import Projects from "./containers/projects";
 
 import "./App.scss";
