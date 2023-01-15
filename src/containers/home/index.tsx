@@ -43,7 +43,7 @@ const Home = () => {
 
           <ParallaxLayer offset={1} speed={0}>
             <div className="expierence">
-              <h1 className="text-white text-center pb-3 pt-3">Expierence</h1>
+              <h1 className="text-white text-center pb-3 pt-5">Expierence</h1>
               <Expierence />
             </div>
           </ParallaxLayer>
