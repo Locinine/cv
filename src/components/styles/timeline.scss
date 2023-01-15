@@ -40,6 +40,11 @@ $brand-color: #cb4d52;
     position: relative;
     justify-content: space-between;
 
+    svg {
+      width: 6rem;
+      height: 6rem;
+    }
+
     &:nth-child(2) {
       margin-top: 362px;
     }

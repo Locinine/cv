@@ -9,6 +9,7 @@ import {
   SiPerl,
   SiMicrosoftsharepoint,
 } from "react-icons/si";
+import { WhiteHat, Golang } from "../../components/icons";
 
 import type { TimelineItem } from "../../components/timeline";
 
@@ -51,7 +52,7 @@ const Expierence = () => {
     },
     {
       title: "API AST Scanner",
-      icon: <SiPerl />,
+      icon: <Golang />,
       tech: "Perl, ReactJS, GoLang",
       position: "top",
       // content: "Took point on the creation of a some stuff and things",
@@ -59,6 +60,7 @@ const Expierence = () => {
     },
     {
       title: "WhiteHat Security, aquired by NTT Security",
+      icon: <WhiteHat />,
       position: "bottom",
       // content:
       // "Started to integrate our systems with NTT and get up to speed with there process",
